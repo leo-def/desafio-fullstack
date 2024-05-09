@@ -42,7 +42,7 @@ A seguir, são apresentados 2 protótipos de baixo nível que serve como um guia
 
 ### Critérios de aceite: 
 
-### Cenário: Listar mentores cadastrados 
+#### Cenário: Listar mentores cadastrados 
 - **Dado** que estou dentro do sistema de gestão da growdev,
 - **Quando** acesso o menu de mentores,
 - **Então** devo ser capaz de visualizar a lista em forma de tabela dos mentores cadastrados no sistema
