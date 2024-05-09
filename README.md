@@ -118,6 +118,9 @@ A seguir, são apresentados 2 protótipos de baixo nível que serve como um guia
 - **Quando** clico em Cancelar
 - **Então** então fecha o modal e não persiste a exclusão
 
+## Observação sobre os critérios de aceitação
+O critério de aceitação de páginação é opcional, ou seja, não é obrigatório o desenvolvimento e a entrega, mas é um plus caso seja entregado.
+
 ## Campos obrigatórios:
 - **Nome** (editável)
 - **Email** (editável)
