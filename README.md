@@ -3,7 +3,9 @@ Growdev - Full Stack Developer
 
 <!-- [![N|Solid](/mockups/logo-growdev.png)](https://growdev.com.br/) -->
 
-[![Logo da growdev](/mockups/logo-growdev.png)](https://growdev.com.br/)
+<!-- [![Logo da growdev](/mockups/logo-growdev.png)](https://growdev.com.br/) -->
+
+<a href="https://growdev.com.br/" target="_blank"> <img src="./mockups/logo-growdev.png" width="400px" /> </a>
 
 O objetivo deste desafio é avaliar as competências técnicas dos candidatos a desenvolvedor Full Stack Web na Maior Plataforma de Educação do Brasil.
 
