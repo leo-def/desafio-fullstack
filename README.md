@@ -42,7 +42,7 @@ A seguir, são apresentados 2 protótipos de baixo nível que serve como um guia
 
 ### Critérios de aceite: 
 
-#### Cenário: Listar mentores cadastrados 
+### Cenário: Listar mentores cadastrados 
 - **Dado** que estou dentro do sistema de gestão da growdev,
 - **Quando** acesso o menu de mentores,
 - **Então** devo ser capaz de visualizar a lista em forma de tabela dos mentores cadastrados no sistema
@@ -56,9 +56,9 @@ A seguir, são apresentados 2 protótipos de baixo nível que serve como um guia
 - **Quando** utilizo os filtros disponíveis,
 - **Então** devo ser capaz de filtrar a lista de mentores com base em critérios como nome, cpf e email.
 ####
-**Dado** que estou na página de listagem de mentores,
-**Quando** visualizo a lista de mentores cadastrados,
-**Então** devo ser capaz de navegar através das diferentes páginas da lista, com a opção de escolher quantas linhas da tabela desejo visualizar por página.
+- **Dado** que estou na página de listagem de mentores,
+- **Quando** visualizo a lista de mentores cadastrados,
+- **Então** devo ser capaz de navegar através das diferentes páginas da lista, com a opção de escolher quantas linhas da tabela desejo visualizar por página.
 
 #### Cenário: Cadastrar novo aluno
 - **Dado** que estou na página de listagem de mentores,
