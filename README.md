@@ -60,7 +60,7 @@ A seguir, são apresentados 2 protótipos de baixo nível que serve como um guia
 - **Quando** visualizo a lista de mentores cadastrados,
 - **Então** devo ser capaz de navegar através das diferentes páginas da lista, com a opção de escolher quantas linhas da tabela desejo visualizar por página.
 
-#### Cenário: Cadastrar novo aluno
+#### Cenário: Cadastrar novo mentor
 - **Dado** que estou na página de listagem de mentores,
 - **Quando** clico em Cadastrar Mentor
 - **Então** abre a página de Cadastro do mentor
