@@ -148,9 +148,9 @@ A seguir, são apresentados 2 protótipos de baixo nível que serve como um guia
 1. Crie um fork do repositório no seu GitHub
 2. Faça o push do código desenvolvido no seu Github
 3. Inclua um arquivo chamado COMENTARIOS.md explicando
-  - Decisão da arquitetura utilizada
-  - Lista de bibliotecas de terceiros utilizadas
-  - O que você melhoraria se tivesse mais tempo
-  - Quais requisitos obrigatórios que não foram entregues
+    - Decisão da arquitetura utilizada
+    - Lista de bibliotecas de terceiros utilizadas
+    - O que você melhoraria se tivesse mais tempo
+    - Quais requisitos obrigatórios que não foram entregues
 4. Informe a Growdev quando concluir o desafio junto com o link do repositório
 5. Após revisão do projeto junto com a equipe de desevolvimento deixe seu repositório privado
