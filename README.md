@@ -1,7 +1,7 @@
-+A Educação - Full Stack Web Developer
+Growdev - Full Stack Developer
 ===================
 
-[![N|Solid](https://maisaedu.com.br/hubfs/site-grupo-a/logo-mais-a-educacao.svg)](https://maisaedu.com.br/) 
+[![N|Solid](/mockups/logo-growdev.png)](https://growdev.com.br/) 
 
 O objetivo deste desafio é avaliar as competências técnicas dos candidatos a desenvolvedor Full Stack Web na Maior Plataforma de Educação do Brasil.
 
@@ -24,11 +24,11 @@ O desafio consiste em criar uma aplicação para o cadastro de alunos conforme o
 ## Mockups de interface
 A seguir, são apresentados alguns mockups de interface como um guia para a criação do front-end. Fique à vontade para usar sua criatividade na criação do front-end.
 
-* Listagem de Alunos
-![Listagem de Alunos](/mockups/studants_list.png)
+* Listagem de Mentores
+![Listagem de Mentores](/mockups/listagem_mentores.png)
 
-* Criar/Editar Aluno
-![Listagem de Alunos](/mockups/studants_save.png)
+* Criar/Editar Mentor
+![Listagem de Mentores](/mockups/cadastro_mentor.png)
 
 ## Histórias do Usuário
 - **Sendo** um usuário administrativo da Instituição
