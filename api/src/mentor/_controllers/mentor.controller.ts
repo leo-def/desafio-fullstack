@@ -7,6 +7,10 @@ import { UpdateMentorDTO } from '../_dtos/update-mentor.dto';
 import { CreateMentor } from '../_types/create-mentor';
 import { UpdateMentor } from '../_types/update-mentor';
 import { MentorService } from '../_services/mentor.service';
+import { MentorPaginationDTO } from '../_dtos/pagination/mentor-pagination.dto';
+import { MentorPaginationParamsDTO } from '../_dtos/pagination/mentor-pagination-params.dto';
+import { MentorPaginationParams } from '../_types/pagination/mentor-pagination-params';
+import { MentorPaginationResponseDTO } from '../_dtos/mentor-pagination-response.dto';
 import { MentorResponseDTO } from '../_dtos/mentor-response.dto';
 
 @ApiTags('Mentor API | Mentors')
@@ -15,6 +19,29 @@ export class MentorController {
 
 
     constructor(private readonly service: MentorService) {}
+
+    @ApiOperation({ summary: 'Fetch mentors by parameters.' })
+    @ApiOkResponse({
+      description: 'Successful operation.',
+      type: MentorPaginationResponseDTO,
+      isArray: true
+    }) 
+    @ApiInternalServerErrorResponse({
+      status: 500,
+      description: 'Internal server error.',
+    })
+    @ApiResponse({ 
+      status: 400, 
+      description: 'Bad Request.' 
+    })
+    @ApiBody({ description: 'Fetch params.', type: MentorPaginationParamsDTO })
+    @Post("fetch")
+    async fetch(@Body() params: MentorPaginationParamsDTO): Promise<MentorPaginationDTO>  {
+      const request =  plainToInstance(MentorPaginationParams, params)
+      const response = await this.service.fetch(request)
+      return plainToInstance(MentorPaginationDTO, response)
+    }
+    
     @ApiOperation({ summary: 'Create Mentor.' })
     @ApiCreatedResponse({
       description: 'Mentor created successfully.',

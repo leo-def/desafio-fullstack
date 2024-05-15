@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { plainToInstance } from 'class-transformer';
 import { CreateMentorDTO } from '../_dtos/create-mentor.dto';
 import { MentorDTO } from '../_dtos/mentor.dto';
+import { MentorPaginationParamsDTO } from '../_dtos/pagination/mentor-pagination-params.dto';
 import { UpdateMentorDTO } from '../_dtos/update-mentor.dto';
 import { MentorService } from '../_services/mentor.service';
 import { MentorController } from './mentor.controller';
@@ -17,6 +18,7 @@ describe('MentorController', () => {
         {
           provide: MentorService,
           useValue: {
+            fetch: jest.fn(),
             create: jest.fn(),
             update: jest.fn(),
             delete: jest.fn(),
@@ -33,6 +35,73 @@ describe('MentorController', () => {
     expect(mentorController).toBeDefined();
   });
 
+
+  describe('fetch', () => {
+    it('should return paginated mentors', async () => {
+      const mockMentorPaginationParamsDTO: MentorPaginationParamsDTO = {
+        skip: 0,
+        take: 10,
+        select: ['name'],
+        orderBy: { email: 'asc' as 'asc' | 'desc', name: undefined, cpf: undefined, id: undefined },
+        filter: { email: 'name@email.com', name: undefined, cpf: undefined, id: undefined },
+      };
+      const mockMentorDTOs: MentorDTO[] = [{
+        "id": "clw5wh1730000corwl0zgj4g8",
+        "name": "Jose Silva",
+        "cpf": "11222333444",
+        "email": "jose-silva@gmail.com",
+        "createdAt": new Date("2024-05-14T04:35:54.063Z"),
+        "createdBy": null,
+        "updatedAt": new Date("2024-05-14T04:35:54.063Z"),
+        "updatedBy": null
+      },
+      {
+        "id": "clw5whkgi0001corwxykj7j2z",
+        "name": "Joao Silveira",
+        "cpf": "11223443551",
+        "email": "joao-silveira@email.com",
+        "createdAt": new Date("2024-05-14T04:36:19.026Z"),
+        "createdBy": null,
+        "updatedAt": new Date("2024-05-14T04:36:19.026Z"),
+        "updatedBy": null
+      }];
+      jest.spyOn(mentorService, 'fetch').mockResolvedValueOnce({
+        items: [{
+          "id": "clw5wh1730000corwl0zgj4g8",
+          "name": "Jose Silva",
+          "cpf": "11222333444",
+          "email": "jose-silva@gmail.com",
+          "createdAt": new Date("2024-05-14T04:35:54.063Z"),
+          "createdBy": null,
+          "updatedAt": new Date("2024-05-14T04:35:54.063Z"),
+          "updatedBy": null
+        },
+        {
+          "id": "clw5whkgi0001corwxykj7j2z",
+          "name": "Joao Silveira",
+          "cpf": "11223443551",
+          "email": "joao-silveira@email.com",
+          "createdAt": new Date("2024-05-14T04:36:19.026Z"),
+          "createdBy": null,
+          "updatedAt": new Date("2024-05-14T04:36:19.026Z"),
+          "updatedBy": null
+        }],
+        "count": 2,
+        "params": {
+          skip: 0,
+          take: 10,
+          select: ['name'],
+          orderBy: { email: 'asc' as 'asc' | 'desc', name: undefined, cpf: undefined, id: undefined },
+          filter: { email: 'name@email.com', name: undefined, cpf: undefined, id: undefined },
+        }
+      }
+      );
+      const result = await mentorController.fetch(mockMentorPaginationParamsDTO);
+      expect(result.items).toEqual(plainToInstance(MentorDTO, mockMentorDTOs));
+      expect(result.count).toEqual(2);
+      expect(result.params).toEqual(mockMentorPaginationParamsDTO);
+    });
+  });
 
   describe('create', () => {
     it('should create mentor', async () => {
