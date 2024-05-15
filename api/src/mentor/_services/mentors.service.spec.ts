@@ -71,4 +71,23 @@ describe('MentorService', () => {
     });
   });
 
+  describe('delete', () => {
+    it('should call prisma.mentor.delete with the provided id', async () => {
+      const id = 'clw5whkgi0001corwxykj7j2z';
+      jest.spyOn(prismaService.mentor, 'delete').mockResolvedValueOnce(
+          {
+            "id": "clw5whkgi0001corwxykj7j2z",
+            "name": "Joao Silveira",
+            "cpf": "11223443551",
+            "email": "joao-silveira@email.com",
+            "createdAt": new Date("2024-05-14T04:36:19.026Z"),
+            "createdBy": null,
+            "updatedAt": new Date("2024-05-14T04:36:19.026Z"),
+            "updatedBy": null
+          });
+      await mentorService.delete(id);
+      expect(prismaService.mentor.delete).toHaveBeenCalledWith({ where: { id } });
+    });
+  });
+
 });

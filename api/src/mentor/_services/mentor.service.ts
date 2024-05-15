@@ -15,7 +15,15 @@ export class MentorService {
   async create(data: CreateMentor): Promise<Mentor> {
     return await this.prisma.mentor.create({ data });
   }
+
   async update(id: string, data: UpdateMentor): Promise<Mentor> {
     return await this.prisma.mentor.update({ where: { id }, data });
   }
+
+  async delete(id: string): Promise<Mentor> {
+    return await this.prisma.mentor.delete({
+      where: { id }
+    });
+  }
+
 }
