@@ -38,6 +38,45 @@ export class PaginationService {
     };
   }
 
+
+  public fetch<TData, TParams extends PaginationParams<PaginationParamsField>>(
+    prisma: PrismaClient,
+    repository: string,
+    params: TParams,
+  ): Promise<IPagination<TData, TParams>> {
+    const query: PaginationQuery = this.paramsToQuery(params, undefined);
+    return prisma.$transaction(async (tx) => {
+      const count = await tx[repository].count({ where: query.where });
+      const items = await tx[repository].findMany(query);
+      let extra = undefined;
+      if (params.extra) {
+        extra = await tx[repository].findMany({
+          where: params.extra,
+          select: params.select,
+          orderBy: params.orderBy,
+        });
+      }
+      return this.dataToResponse(items, params, count, extra);
+    });
+  }
+
+  public dataToResponse<
+    TData,
+    TParams extends PaginationParams<PaginationParamsField>,
+  >(
+    items: Array<TData>,
+    params: TParams,
+    count?: number,
+    extra?: Array<TData>,
+  ): IPagination<TData, TParams> {
+    return {
+      items,
+      params,
+      count,
+      extra,
+    } as IPagination<TData, TParams>;
+  }
+
   public expandObject(compactObject: { [x: string]: unknown }) {
     const expandedObject = {};
 
