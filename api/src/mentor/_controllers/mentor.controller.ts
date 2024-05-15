@@ -20,6 +20,25 @@ export class MentorController {
 
     constructor(private readonly service: MentorService) {}
 
+    @ApiOperation({ summary: 'Get a mentor by ID.'})
+    @ApiOkResponse({
+      description: 'Successful operation.',
+      type: MentorResponseDTO,
+    }) 
+    @ApiInternalServerErrorResponse({
+      status: 500,
+      description: 'Internal server error.',
+    })
+    @ApiResponse({ 
+      status: 404, 
+      description: 'Mentor not found.' 
+    })
+    @Get()
+    async find(@Param('id') id: string): Promise<MentorDTO | undefined> {
+      const response = await this.service.byId(id)
+      return plainToInstance(MentorDTO, response)
+    }
+
     @ApiOperation({ summary: 'Fetch mentors by parameters.' })
     @ApiOkResponse({
       description: 'Successful operation.',
@@ -95,7 +114,7 @@ export class MentorController {
       const response = await this.service.update(id, request);
       return plainToInstance(MentorDTO, response)
     }
-
+ 
     @ApiOperation({ summary: 'Delete Mentor.' })
     @ApiOkResponse({
       description: 'Mentor deleted successfully.',

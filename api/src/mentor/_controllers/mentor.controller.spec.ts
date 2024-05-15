@@ -18,6 +18,7 @@ describe('MentorController', () => {
         {
           provide: MentorService,
           useValue: {
+            byId: jest.fn(),
             fetch: jest.fn(),
             create: jest.fn(),
             update: jest.fn(),
@@ -35,6 +36,32 @@ describe('MentorController', () => {
     expect(mentorController).toBeDefined();
   });
 
+  describe('find', () => {
+    it('should return mentor by id', async () => {
+      const mockMentorDTO: MentorDTO = {
+        "id": "clw5wh1730000corwl0zgj4g8",
+        "name": "Jose Silva",
+        "cpf": "11222333444",
+        "email": "jose-silva@gmail.com",
+        "createdAt": new Date("2024-05-14T04:35:54.063Z"),
+        "createdBy": null,
+        "updatedAt": new Date("2024-05-14T04:35:54.063Z"),
+        "updatedBy": null
+      };
+      jest.spyOn(mentorService, 'byId').mockResolvedValueOnce({
+        "id": "clw5wh1730000corwl0zgj4g8",
+        "name": "Jose Silva",
+        "cpf": "11222333444",
+        "email": "jose-silva@gmail.com",
+        "createdAt": new Date("2024-05-14T04:35:54.063Z"),
+        "createdBy": null,
+        "updatedAt": new Date("2024-05-14T04:35:54.063Z"),
+        "updatedBy": null
+      });
+      const result = await mentorController.find('clw5wh1730000corwl0zgj4g8')
+      expect(result).toEqual(plainToInstance(MentorDTO, mockMentorDTO));
+    });
+  });
 
   describe('fetch', () => {
     it('should return paginated mentors', async () => {
