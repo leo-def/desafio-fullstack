@@ -15,6 +15,10 @@ export class MentorService {
     private readonly pagination: PaginationService
   ) {}
 
+  async byId(id: string): Promise<Mentor> {
+    return await this.prisma.mentor.findFirst({ where: { id } })
+  }
+
   async fetch(
     params: MentorPaginationParams,
   ): Promise<MentorPagination> {
