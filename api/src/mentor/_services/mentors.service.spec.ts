@@ -46,4 +46,29 @@ describe('MentorService', () => {
       expect(prismaService.mentor.create).toHaveBeenCalledWith({ data });
     });
   });
+
+  describe('update', () => {
+    it('should call prisma.mentor.update with the provided id and data', async () => {
+      const id = 'clw5whkgi0001corwxykj7j2z';
+      const data = {
+        "name": "Joao Silveira",
+        "cpf": "11223443551",
+        "email": "joao-silveira@email.com",
+      };
+      jest.spyOn(prismaService.mentor, 'update').mockResolvedValueOnce(
+          {
+            "id": "clw5whkgi0001corwxykj7j2z",
+            "name": "Joao Silveira",
+            "cpf": "11223443551",
+            "email": "joao-silveira@email.com",
+            "createdAt": new Date("2024-05-14T04:36:19.026Z"),
+            "createdBy": null,
+            "updatedAt": new Date("2024-05-14T04:36:19.026Z"),
+            "updatedBy": null
+          });
+      await mentorService.update(id, data);
+      expect(prismaService.mentor.update).toHaveBeenCalledWith({ where: { id }, data });
+    });
+  });
+
 });
