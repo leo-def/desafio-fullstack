@@ -16,8 +16,11 @@ describe('MentorController', () => {
       providers: [
         {
           provide: MentorService,
+          useValue: {
             create: jest.fn(),
             update: jest.fn(),
+            delete: jest.fn(),
+          },
         },
       ],
     }).compile();
@@ -94,4 +97,32 @@ describe('MentorController', () => {
       expect(result).toEqual(plainToInstance(MentorDTO, mockMentorDTO));
     });
   });
+
+  describe('delete', () => {
+    it('should delete mentor', async () => {
+      const mockMentorDTO: MentorDTO = {
+        "id": "clw5wh1730000corwl0zgj4g8",
+        "name": "Jose Silva",
+        "cpf": "11222333444",
+        "email": "jose-silva@gmail.com",
+        "createdAt": new Date("2024-05-14T04:35:54.063Z"),
+        "createdBy": null,
+        "updatedAt": new Date("2024-05-14T04:35:54.063Z"),
+        "updatedBy": null
+      };;
+      jest.spyOn(mentorService, 'delete').mockResolvedValueOnce({
+        "id": "clw5wh1730000corwl0zgj4g8",
+        "name": "Jose Silva",
+        "cpf": "11222333444",
+        "email": "jose-silva@gmail.com",
+        "createdAt": new Date("2024-05-14T04:35:54.063Z"),
+        "createdBy": null,
+        "updatedAt": new Date("2024-05-14T04:35:54.063Z"),
+        "updatedBy": null
+      });
+      const result = await mentorController.delete('clw5wh1730000corwl0zgj4g8');
+      expect(result).toEqual(plainToInstance(MentorDTO, mockMentorDTO));
+    });
+  });
+
 });

@@ -68,5 +68,31 @@ export class MentorController {
       const response = await this.service.update(id, request);
       return plainToInstance(MentorDTO, response)
     }
+
+    @ApiOperation({ summary: 'Delete Mentor.' })
+    @ApiOkResponse({
+      description: 'Mentor deleted successfully.',
+      type: MentorResponseDTO,
+    })
+    @ApiInternalServerErrorResponse({
+      status: 500,
+      description: 'Internal server error',
+    })
+    @ApiResponse({ 
+      status: 400, 
+      description: 'Bad Request.' 
+    })
+    @ApiParam({
+      name: 'id',
+      required: true,
+      description: 'Mentor id.',
+      type: 'string',
+    })
+    @Delete("/:id")
+    async delete(@Param('id') id: string): Promise<MentorDTO | undefined> {
+      const response = await  this.service.delete(id);
+      return plainToInstance(MentorDTO, response)
+    }
+
   }
   
