@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { plainToInstance } from 'class-transformer';
 import { CreateMentorDTO } from '../_dtos/create-mentor.dto';
 import { MentorDTO } from '../_dtos/mentor.dto';
+import { UpdateMentorDTO } from '../_dtos/update-mentor.dto';
 import { MentorService } from '../_services/mentor.service';
 import { MentorController } from './mentor.controller';
 
@@ -16,6 +17,7 @@ describe('MentorController', () => {
         {
           provide: MentorService,
             create: jest.fn(),
+            update: jest.fn(),
         },
       ],
     }).compile();
@@ -61,4 +63,35 @@ describe('MentorController', () => {
     });
   });
 
+  describe('update', () => {
+    it('should update mentor', async () => {
+      const mockUpdateMentorDTO: UpdateMentorDTO = {
+        "name": "Jose Silva",
+        "cpf": "11222333444",
+        "email": "jose-silva@gmail.com"
+      };;
+      const mockMentorDTO: MentorDTO = {
+        "id": "clw5wh1730000corwl0zgj4g8",
+        "name": "Jose Silva",
+        "cpf": "11222333444",
+        "email": "jose-silva@gmail.com",
+        "createdAt": new Date("2024-05-14T04:35:54.063Z"),
+        "createdBy": null,
+        "updatedAt": new Date("2024-05-14T04:35:54.063Z"),
+        "updatedBy": null
+      };;
+      jest.spyOn(mentorService, 'update').mockResolvedValueOnce({
+        "id": "clw5wh1730000corwl0zgj4g8",
+        "name": "Jose Silva",
+        "cpf": "11222333444",
+        "email": "jose-silva@gmail.com",
+        "createdAt": new Date("2024-05-14T04:35:54.063Z"),
+        "createdBy": null,
+        "updatedAt": new Date("2024-05-14T04:35:54.063Z"),
+        "updatedBy": null
+      });
+      const result = await mentorController.update('clw5wh1730000corwl0zgj4g8', mockUpdateMentorDTO);
+      expect(result).toEqual(plainToInstance(MentorDTO, mockMentorDTO));
+    });
+  });
 });
