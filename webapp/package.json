@@ -7,6 +7,7 @@
     "local": "next dev -p 8080",
     "build": "next build",
     "start": "next start",
+    "start:dev": "next start -p 8080",
     "lint": "next lint",
     "test": "jest"
   },
