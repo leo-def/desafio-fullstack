@@ -23,48 +23,14 @@ jest.mock('./collectionHeader', () => ({
 jest.mock('../../_hooks/useGetManageContextValue', () => ({
   useGetManageContextValue: jest.fn()
 }));
-
-jest.mock('../../_hooks/useSetManageFetchResult', () => ({
-  useSetManageFetchResult: jest.fn()
-}));
-
 import { useGetManageContextValue } from '../../_hooks/useGetManageContextValue';
 
-const config = {
-  disabled: false,
-  collection: {
-    grid: {
-      ItemDisplay: undefined,
-    } as GridConfig<Object>,
-    table: {
-      columns: [
-        {
-          field: 'id',
-          label: 'ID',
-          Title: undefined,
-          Display: undefined,
-        } as TableField<Object>,
-      ]
-    } as TableConfig<Object>,
-    filter: {
-      id: 'mentor-filter-form',
-      map: undefined,
-      disabled: false,
-      Display: undefined,
-      limitInputLabel: 'Rows per page'
-    }
-  } as CollectionConfig<Object>,
-  form: {
-    id: 'mentor-form',
-    onSubmit: undefined,
-    Display: undefined,
-    disabled: false
-  } as FormConfig<Object>,
-  actions: {
-    onDelete: undefined,
-    onFetc: undefined
-  } as Actions<Object>
-} as ManageConfig<Object>
+jest.mock('../../_hooks/useSetManageFetchResult', () => ({
+  useSetManageFetchResult: jest.fn().mockReturnValue(jest.fn())
+}));
+
+
+
 
 
 describe('Collection', () => {
@@ -86,8 +52,41 @@ describe('Collection', () => {
     const collectionView = 'TABLE'; 
     const action = 'COLLECTION'; 
     const onFetch = jest.fn().mockResolvedValue(fetchResult); 
-    const config = { actions: { onFetch } };
-
+    const config = {
+      disabled: false,
+      collection: {
+        grid: {
+          ItemDisplay: undefined,
+        } as GridConfig<Object>,
+        table: {
+          columns: [
+            {
+              field: 'id',
+              label: 'ID',
+              Title: undefined,
+              Display: undefined,
+            } as TableField<Object>,
+          ]
+        } as TableConfig<Object>,
+        filter: {
+          id: 'mentor-filter-form',
+          map: undefined,
+          disabled: false,
+          Display: undefined,
+          limitInputLabel: 'Rows per page'
+        }
+      } as CollectionConfig<Object>,
+      form: {
+        id: 'mentor-form',
+        onSubmit: undefined,
+        Display: undefined,
+        disabled: false
+      } as FormConfig<Object>,
+      actions: {
+        onDelete: undefined,
+        onFetch
+      } as Actions<Object>
+    } as ManageConfig<Object>
     
     (useGetManageContextValue as jest.Mock<any, any, any>).mockReturnValue({
       state: { fetchParams, fetchResult, collectionView, action },

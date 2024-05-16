@@ -2,19 +2,19 @@ import { render } from '@testing-library/react';
 import { AppProvider } from './appProvider';
 
 jest.mock('../../commons/message/_components/messageContextProvider', () => ({
-  MessageContextProvider: jest.fn(() => <div data-testid="message-context-provider">Mock MessageContextProvider Component</div>)
+  MessageContextProvider: jest.fn(({ children}) => <div data-testid="message-context-provider">Mock MessageContextProvider Component {children}</div>)
 }));
 
 jest.mock('../../commons/sidebar/_components/sidebarContextProvider', () => ({
-  SidebarContextProvider: jest.fn(() => <div data-testid="sidebar-context-provider">Mock SidebarContextProvider Component</div>)
+  SidebarContextProvider: jest.fn(({ children}) => <div data-testid="sidebar-context-provider">Mock SidebarContextProvider Component {children}</div>)
 }));
 
 jest.mock('../../commons/theme/_components/themeContextProvider', () => ({
-  ThemeContextProvider: jest.fn(() => <div data-testid="theme-context-provider">Mock ThemeContextProvider Component</div>)
+  ThemeContextProvider: jest.fn(({ children}) => <div data-testid="theme-context-provider">Mock ThemeContextProvider Component {children}</div>)
 }));
 
 jest.mock('../../commons/waiting/_components/waitingContextProvider', () => ({
-  WaitingContextProvider: jest.fn(() => <div data-testid="waiting-context-provider">Mock WaitingContextProvider Component</div>)
+  WaitingContextProvider: jest.fn(({ children}) => <div data-testid="waiting-context-provider">Mock WaitingContextProvider Component {children}</div>)
 }));
 
 describe('AppProvider', () => {

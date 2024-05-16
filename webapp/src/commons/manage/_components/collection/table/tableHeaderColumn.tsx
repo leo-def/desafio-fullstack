@@ -9,5 +9,5 @@ export interface TableHeaderColumnProps<T> {
 }
 export function TableHeaderColumn<T>({ column }: TableHeaderColumnProps<T>) {
     const { Title } = column
-    return (<TableCell><SortButton column={column}>{Title ? <Title column={column} /> : undefined}</SortButton></TableCell>)
+    return (<TableCell data-testid="columnheader"><SortButton column={column}>{Title ? <Title column={column} /> : undefined}</SortButton></TableCell>)
 }

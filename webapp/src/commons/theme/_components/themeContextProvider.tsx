@@ -12,7 +12,7 @@ export const ThemeContextProvider = ({ children }: PropsWithChildren) => {
 
     const theme = createTheme({
         palette: {
-            mode: state.theme === 'dark' ? 'dark' : 'light',
+            mode: state?.theme === 'dark' ? 'dark' : 'light',
         },
     });
 

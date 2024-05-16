@@ -8,7 +8,8 @@ export const SidebarContextProvider = ({ children }: PropsWithChildren) => {
     const [state, dispatch] = useReducer(sidebarReducer, initialState);
     const value = useMemo(() => ({ state, dispatch }), [state, dispatch])
     return (
-        <SidebarContext.Provider value={value}  data-testid="sidebar-context-provider">
+
+        <SidebarContext.Provider value={value} >
             {children}
         </SidebarContext.Provider>
     );

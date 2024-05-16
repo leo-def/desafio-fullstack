@@ -12,6 +12,13 @@ import { ActionEnum } from '../_enums/action.enum';
 import { CollectionViewEnum } from '../_enums/collectionView.enum';
 import { ManageStatusState } from '../_types/status/manageStatusState';
 
+
+
+jest.mock('../_contexts/manageContext', () => ({
+  ManageContext: { Provider: jest.fn(({ children, value}) => <div data-testid="manage-context-provider" data-testvalue={JSON.stringify(value)}>{children}</div>)}
+}));
+
+
 export const initialState = {
   selected: undefined,
   action: ActionEnum.COLLECTION,
@@ -57,13 +64,15 @@ const config = {
       onFetc: undefined
   } as Actions<Object>
 } as ManageConfig<Object>
+
 describe('ManageContextProvider', () => {
   it('renders children and provides ManageContext value', () => {
 
-    const { getByTestId } = render(
+    const { getByTestId } = render(<div>
       <ManageContextProvider config={config}>
         <ChildComponent />
       </ManageContextProvider>
+      </div>
     );
 
     expect(getByTestId('child-component')).toBeInTheDocument();
@@ -71,7 +80,7 @@ describe('ManageContextProvider', () => {
     const manageContextProvider = getByTestId('manage-context-provider');
     expect(manageContextProvider).toBeInTheDocument();
 
-    expect(manageContextProvider).toHaveAttribute('value', JSON.stringify({ state: initialState, config }));
+    expect(manageContextProvider).toHaveAttribute('data-testvalue', JSON.stringify({ state: initialState, config }));
   });
 });
 

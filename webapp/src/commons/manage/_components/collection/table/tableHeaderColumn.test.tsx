@@ -12,11 +12,11 @@ describe('TableHeaderColumn', () => {
     };
 
     const {
-      getByRole,
+      getByTestId,
       getByText
-    } = render(<TableHeaderColumn column={mockColumn} />);
+    } = render(<div><TableHeaderColumn column={mockColumn} /></div>);
 
-    const tableHeaderColumnElement = getByRole('columnheader');
+    const tableHeaderColumnElement = getByTestId('columnheader');
     expect(tableHeaderColumnElement).toBeInTheDocument();
 
     const titleElement = getByText('Mock Title');
@@ -32,14 +32,14 @@ describe('TableHeaderColumn', () => {
     }
 
     const {
-      getByRole,
+      getByTestId,
       queryByText
-    } = render(<TableHeaderColumn column={mockColumn} />);
+    } = render(<div><TableHeaderColumn column={mockColumn} /></div>);
 
-    const tableHeaderColumnElement = getByRole('columnheader');
+    const tableHeaderColumnElement = getByTestId('columnheader');
     expect(tableHeaderColumnElement).toBeInTheDocument();
 
-    expect(queryByText('Mock Title')).not.toBeInTheDocument();
+    expect(queryByText('Mock Display')).not.toBeInTheDocument();
   });
 
 });

@@ -5,7 +5,7 @@ import { SidebarState } from "../_types/sidebarState";
 import { SidebarAction } from "../_types/sidebarAction";
 import { AppReducerContext } from "../../shared/_types/appReducerContext";
 export const initialState = {
-  open: undefined
+  open: false
 } as SidebarState;
 
 export const SidebarContext = createContext({

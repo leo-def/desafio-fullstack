@@ -1,6 +1,6 @@
+import { PaginationParams } from "../_types/pagination/paginationParams";
+import { PaginationParamsField } from "../_types/pagination/paginationParamsField";
 import { FetchParams } from "../_types/status/params/fetchParams";
-import { PaginationParams } from "../../pagination/_types/paginationParams";
-import { PaginationParamsField } from "../../pagination/_types/paginationParamsField";
 
 
 export class ApiPaginationService {

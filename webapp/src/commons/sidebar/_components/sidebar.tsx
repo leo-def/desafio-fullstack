@@ -17,7 +17,7 @@ export function Sidebar() {
                         <HomeIcon />
                     </ListItemIcon>
                     <Link href="/" passHref>
-                        <ListItemText primary="Home" />{/* i18n */}
+                        <ListItemText primary="Home" />
                     </Link>
                 </ListItemButton>
             </ListItem>
@@ -30,7 +30,7 @@ export function Sidebar() {
                         <ListItemIcon>
                             <AccountCircleIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Mentors" />{/* i18n */}
+                        <ListItemText primary="Mentors" />
                     </ListItemButton>
                 </Link>
             </ListItem>
