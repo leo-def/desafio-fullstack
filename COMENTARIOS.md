@@ -13,6 +13,7 @@ This project is a Mentor Management System developed for Growdev, an educational
 - [API Documentation](#api-documentation)
 - [User Stories](#user-stories)
 - [Tasks](#tasks)
+- [Dependencies](#dependencies)
 
 ## Technologies Used
 
@@ -376,3 +377,61 @@ Below is the comprehensive list of tasks for the project, categorized by their r
 - **Description:** Initialize the frontend application with Next.js.
 - **Status:** Done
 - **Assigned to:** Leonardo
+
+## Dependencies
+
+### Backend Dependencies Justification:
+
+1. **NestJS (with CLI, Schematics, and Testing)**:
+   - NestJS provides a robust framework for building scalable and maintainable Node.js applications with TypeScript.
+   - The CLI and Schematics offer convenient tools for generating boilerplate code and scaffolding application components.
+   - Testing utilities simplify the process of writing and executing unit and integration tests, ensuring code quality and reliability.
+
+2. **Express Type Definitions**:
+   - Type definitions for Express ensure type safety and enable better development experience with TypeScript.
+
+3. **Jest**:
+   - Jest is a popular testing framework for JavaScript and TypeScript projects.
+   - It offers a simple and powerful API for writing unit and integration tests, with built-in support for features like mocking and assertion.
+
+4. **ESLint with Prettier Integration**:
+   - ESLint enforces coding standards and detects potential issues in the codebase, promoting consistency and readability.
+   - Prettier automatically formats code to maintain a consistent style, reducing the need for manual formatting and enhancing code maintainability.
+
+5. **Supertest**:
+   - Supertest provides a high-level abstraction for testing HTTP servers, making it easy to send requests and assert responses in integration tests.
+
+6. **ts-jest, ts-loader, ts-node, Typescript, tsconfig-paths**:
+   - These tools enable TypeScript support in the testing environment and ensure seamless integration with Jest and other testing utilities.
+   - TypeScript offers static typing and modern ECMAScript features, enhancing code quality and developer productivity.
+   - tsconfig-paths facilitates path resolution for TypeScript modules, especially useful for maintaining clean and organized project structure.
+
+### Frontend Dependencies Justification:
+
+1. **Next.js**:
+   - Next.js is a popular React framework that simplifies the development of server-side-rendered (SSR) and statically generated React applications.
+   - It offers features like automatic code splitting, hot module replacement, and optimized performance out of the box.
+
+2. **Material-UI (with Icons)**:
+   - Material-UI provides a comprehensive set of React components and styles based on Google's Material Design.
+   - It offers ready-to-use UI components, theming support, and accessibility features, enabling rapid development of visually appealing and responsive user interfaces.
+
+3. **React Hook Form**:
+   - React Hook Form is a performant and flexible form validation library for React applications.
+   - It offers simple API, built-in support for schema-based validation with Yup, and excellent TypeScript integration, improving form development experience and reducing boilerplate code.
+
+4. **Yup**:
+   - Yup is a schema validation library that works well with React Hook Form and other form libraries.
+   - It provides a declarative and composable API for defining validation rules, ensuring data integrity and user input correctness.
+
+5. **Emotion (with Styled)**:
+   - Emotion is a popular CSS-in-JS library that offers powerful styling capabilities for React applications.
+   - It provides a convenient API for defining styles with JavaScript and supports features like theming, nested selectors, and global styles.
+
+6. **Date-fns**:
+   - Date-fns is a lightweight and modular JavaScript library for date manipulation and formatting.
+   - It offers a comprehensive set of functions for common date-related tasks, with a focus on simplicity, performance, and browser compatibility.
+
+7. **UUID**:
+   - UUID is a library for generating universally unique identifiers (UUIDs) in JavaScript applications.
+   - It provides functions for creating deterministic and random UUIDs, useful for generating unique keys and identifiers in the frontend application.
