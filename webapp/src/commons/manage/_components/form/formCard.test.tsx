@@ -58,9 +58,10 @@ const config = {
   } as FormConfig<Object>,
   actions: {
     onDelete: undefined,
-    onFetc: undefined
+    onFetch: undefined
   } as Actions<Object>
 } as ManageConfig<Object>
+
 describe('FormCard', () => {
   it('renders FormCard component with close button', () => {
     const values = { id: 'clw3qoybt0000mgjc3nuwr3uk', name: 'Jhon' };

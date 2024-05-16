@@ -26,7 +26,7 @@ describe('ManageContent', () => {
       }
     });
 
-    const { getByTestId } = render(<ManageContent />);
+    const { getByTestId } = render(<div><ManageContent /></div>);
 
     expect(getByTestId('collection-component')).toBeInTheDocument();
     expect(getByTestId('dialog-component')).toBeInTheDocument();
@@ -41,10 +41,10 @@ describe('ManageContent', () => {
       }
     });
 
-    const { getByTestId } = render(<ManageContent />);
+    const { getByTestId, queryByTestId } = render(<div><ManageContent /></div>);
 
     expect(getByTestId('collection-component')).toBeInTheDocument();
-    expect(getByTestId('dialog-component')).toBeNull();
-    expect(getByTestId('form-card-component')).toBeNull();
+    expect(queryByTestId('dialog-component')).toBeNull();
+    expect(queryByTestId('form-card-component')).toBeNull();
   });
 });

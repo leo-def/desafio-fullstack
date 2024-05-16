@@ -46,7 +46,7 @@ export function MentorFormDisplay({
     });
     const onFormSubmit: SubmitHandler<MentorFormInputs> = async (data: MentorFormInputs) =>  onSubmit ? await onSubmit(data as MentorDto) : undefined;
 
-    return (<form onSubmit={handleSubmit(onFormSubmit)} id={id}>
+    return (<form onSubmit={handleSubmit(onFormSubmit)} id={id} data-testid="mentor-form">
         <fieldset>
             <input
                 type="hidden"

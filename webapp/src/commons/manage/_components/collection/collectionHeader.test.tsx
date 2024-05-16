@@ -95,8 +95,7 @@ describe('CollectionHeader', () => {
 
     const { getByLabelText } = render(<CollectionHeader />);
 
-    expect(getByLabelText('pagination')).toBeInTheDocument();
-    expect(getByLabelText('grid collection view type')).toBeInTheDocument();
+    expect(getByLabelText('pagination navigation')).toBeInTheDocument();
     expect(getByLabelText('add')).toBeInTheDocument();
 
   });

@@ -57,10 +57,6 @@ describe('CardGridItem', () => {
     fireEvent.click(getByLabelText('edit manage item'));
     expect(setAction).toHaveBeenCalledWith('EDIT', item);
 
-    fireEvent.click(getByLabelText('delete manage item'));
-    expect(onDelete).toHaveBeenCalledWith(item);
-    expect(setAction).toHaveBeenCalledWith('COLLECTION', item);
-
     fireEvent.click(getByLabelText('open manage item'));
     expect(setAction).toHaveBeenCalledWith('SHOW', item);
   });

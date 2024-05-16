@@ -13,42 +13,49 @@ jest.mock('./manageContent', () => ({
 }));
 
 jest.mock('./manageContextProvider', () => ({
-  ManageContextProvider: jest.fn(() => <div data-testid="manage-context-provider">Mock ManageContextProvider Component</div>)
+  ManageContextProvider: jest.fn(({ children }) => <div data-testid="manage-context-provider">Mock ManageContextProvider Component {children}</div>)
 }));
+
 
 const config = {
   disabled: false,
   collection: {
-      grid: {
-          ItemDisplay: undefined,
-      } as GridConfig<Object>,
-      table: {
-          columns: [
-              {
-                  field: 'id',
-                  label: 'ID',
-                  Title: undefined,
-                  Display: undefined,
-              } as TableField<Object>,
-          ]
-      } as TableConfig<Object>,
-      filter: {
-          id: 'mentor-filter-form',
-          map: undefined,
-          disabled: false,
+    grid: {
+      ItemDisplay: undefined,
+    } as GridConfig<Object>,
+    table: {
+      columns: [
+        {
+          field: 'id',
+          label: 'ID',
+          Title: undefined,
           Display: undefined,
-          limitInputLabel: 'Rows per page'
-      }
+        } as TableField<Object>,
+        {
+          field: 'name',
+          label: 'Name',
+          Title: undefined,
+          Display: undefined,
+        } as TableField<Object>
+      ]
+    } as TableConfig<Object>,
+    filter: {
+      id: 'mentor-filter-form',
+      map: undefined,
+      disabled: false,
+      Display: undefined,
+      limitInputLabel: 'Rows per page'
+    }
   } as CollectionConfig<Object>,
   form: {
-      id: 'mentor-form',
-      onSubmit: undefined,
-      Display: undefined,
-      disabled: false
+    id: 'mentor-form',
+    onSubmit: undefined,
+    Display: undefined,
+    disabled: false
   } as FormConfig<Object>,
   actions: {
-      onDelete: undefined,
-      onFetc: undefined
+    onDelete: undefined,
+    onFetch: undefined
   } as Actions<Object>
 } as ManageConfig<Object>
 

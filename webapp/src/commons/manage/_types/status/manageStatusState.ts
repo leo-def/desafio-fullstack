@@ -1,5 +1,6 @@
-import { CollectionViewEnum } from "@/manage/_enums/collectionView.enum";
+
 import { ActionEnum } from "../../_enums/action.enum";
+import { CollectionViewEnum } from "../../_enums/collectionView.enum";
 import { FetchResult } from "./fetchResult";
 import { FetchParams } from "./params/fetchParams";
 

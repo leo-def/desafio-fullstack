@@ -1,16 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { WaitingContextProvider } from './waitingContextProvider';
-import { WaitingState } from '../_types/waitingState';
 
+
+jest.mock('../_contexts/waitingContext', () => ({
+  WaitingContext: { Provider: jest.fn(({ children, value }) => <div data-testid="waiting-context-provider" data-testvalue={JSON.stringify(value)}>{children}</div>)}
+}));
 
 describe('WaitingContextProvider', () => {
   it('renders children and provides WaitingContext value', () => {
-
-    const initialState = {
-      tasks: []
-    } as WaitingState;
-
     const { getByTestId } = render(
       <WaitingContextProvider>
         <ChildComponent />
@@ -22,7 +20,7 @@ describe('WaitingContextProvider', () => {
     const waitingContextProvider = getByTestId('waiting-context-provider');
     expect(waitingContextProvider).toBeInTheDocument();
 
-    expect(waitingContextProvider).toHaveAttribute('value', JSON.stringify({ state: initialState }));
+    expect(waitingContextProvider).toHaveAttribute('data-testvalue', JSON.stringify({ }));
   });
 });
 

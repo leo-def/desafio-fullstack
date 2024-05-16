@@ -16,7 +16,7 @@ export function TableRow({ item, index }: TableRowProps) {
     } = useGetManageContextValue<any>()
     const ColumnDisplay = ActionsColumnDisplay ?? DefaultActionsColumnDisplay
     return (<MuiTableRow>
-        {columns.map((column, index) => <TableColumn key={JSON.stringify(column)} column={column} item={item} index={index} />)}
+        {columns.map((column, index) => <TableColumn key={JSON.stringify(column)} column={column} item={item} index={index}/>)}
         <TableCell align="right">{ColumnDisplay ? <ColumnDisplay item={item} index={index} /> : undefined}</TableCell>
     </MuiTableRow>)
 }

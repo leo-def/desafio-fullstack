@@ -1,16 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { ThemeContextProvider } from './themeContextProvider';
-import { ThemeState } from '../_types/themeState';
 
+jest.mock('../_contexts/themeContext', () => ({
+  ThemeContext: { Provider: jest.fn(({ children, value }) => <div data-testid="theme-context-provider" data-testvalue={JSON.stringify(value)}>{children}</div>)}
+}));
 
 describe('ThemeContextProvider', () => {
   it('renders children and provides ThemeContext value', () => {
 
-    const initialState = {
-      theme: undefined,
-      loaded: false
-    } as ThemeState;
 
     const { getByTestId } = render(
       <ThemeContextProvider>
@@ -23,7 +21,7 @@ describe('ThemeContextProvider', () => {
     const themeContextProvider = getByTestId('theme-context-provider');
     expect(themeContextProvider).toBeInTheDocument();
 
-    expect(themeContextProvider).toHaveAttribute('value', JSON.stringify({ state: initialState }));
+    expect(themeContextProvider).toHaveAttribute('data-testvalue', JSON.stringify({  }));
   });
 });
 

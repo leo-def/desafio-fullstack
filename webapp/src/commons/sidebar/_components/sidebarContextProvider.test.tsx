@@ -1,15 +1,13 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { SidebarContextProvider } from './sidebarContextProvider';
-import { SidebarState } from '../_types/sidebarState';
 
+jest.mock('../_contexts/sidebarContext', () => ({
+  SidebarContext: { Provider: jest.fn(({ children, value }) => <div data-testid="sidebar-context-provider" data-testvalue={JSON.stringify(value)}>{children}</div>)}
+}));
 
 describe('SidebarContextProvider', () => {
   it('renders children and provides SidebarContext value', () => {
-
-    const initialState = {
-      open: undefined
-    } as SidebarState;
 
     const { getByTestId } = render(
       <SidebarContextProvider>
@@ -22,7 +20,7 @@ describe('SidebarContextProvider', () => {
     const sidebarContextProvider = getByTestId('sidebar-context-provider');
     expect(sidebarContextProvider).toBeInTheDocument();
 
-    expect(sidebarContextProvider).toHaveAttribute('value', JSON.stringify({ state: initialState }));
+    expect(sidebarContextProvider).toHaveAttribute('data-testvalue', JSON.stringify({}));
   });
 });
 

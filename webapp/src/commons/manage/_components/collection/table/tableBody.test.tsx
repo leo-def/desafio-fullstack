@@ -4,7 +4,10 @@ import { TableBody } from './tableBody';
 
 jest.mock('../../../_hooks/useGetManageContextValue', () => ({
   useGetManageContextValue: () => ({
-    state: { fetchResult: { items: [{ id: 1, name: 'Item 1' }, { id: 2, name: 'Item 2' }] } }
+    state: { fetchResult: { items: [{ id: 1, name: 'Item 1' }, { id: 2, name: 'Item 2' }] } },
+    config: { 
+      collection: { table: { columns: [], ActionsColumnDisplay: undefined } } ,
+      actions: {   onDelete: undefined  },  disabled: false   }
   })
 }));
 
