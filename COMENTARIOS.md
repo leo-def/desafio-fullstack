@@ -63,30 +63,68 @@ cd ../api
 npx prisma generate
 npm test
 ```
-
 ### Starting Locally
 
-To start the applications locally manually, you need to start both frontend and backend projects separately.
+To start the applications locally manually, you need to start both the frontend and backend projects separately.
 
-```bash
-# Frontend
-cd webapp
+#### Frontend
 
-copy env.bkp .env #Windows
-cp env.bkp .env #Linux
-npx prisma generate
-npx prisma db push
-npm run local
+1. **Navigate to directory**:
+    ```bash
+    cd webapp
+    ```
 
-# Backend
-cd ../api
+2. **Setup the environment file**: You can copy the `env.bkp` values, or modify them if necessary:
+    ```bash
+    # Windows example
+    copy env.bkp .env
+    
+    # Linux example
+    cp env.bkp .env
+    ```
 
-copy env.bkp .env #Windows
-cp env.bkp .env #Linux
-npx prisma generate
-npx prisma db push
-npm run start:dev
-```
+3. **Run the application**:
+    ```bash
+    npm run local
+    ```
+
+#### Backend
+
+
+1. **Install PostgreSQL**: If you don't have PostgreSQL installed, download and install it from [here](https://www.postgresql.org/download/).
+
+2. **Start PostgreSQL**: After installation, start the PostgreSQL service. The steps to start the service may vary based on your operating system. Typically, you can start it via your system's service manager or directly from the command line.
+
+3. **Create Database**: Create a new database for the application. You can do this via the PostgreSQL command line interface (`psql`) or a database management tool like pgAdmin. By default, we use a database named 'mentors'.
+
+4. **Navigate to directory**:
+    ```bash
+    cd ../api
+    ```
+
+5. **Setup the environment file**: You can copy the `env.bkp` values, or modify them if necessary:
+    ```bash
+    # Windows example
+    copy env.bkp .env
+    
+    # Linux example
+    cp env.bkp .env
+    ```
+
+6. **Generate database schemas**:
+    ```bash
+    npx prisma generate
+    ```
+
+7. **Synchronize generated schemas with the database**:
+    ```bash
+    npx prisma db push
+    ```
+
+8. **Run the application**:
+    ```bash
+    npm run start:dev
+    ```
 
 ### Starting with Docker Compose
 
