@@ -78,7 +78,8 @@ export function DefaultActionsColumnDisplay<T>({
             aria-controls={open ? `${prefix}manage-actions-menu` : undefined}
             aria-expanded={open ? 'true' : undefined}
             aria-haspopup="true"
-            onClick={handleToggle}>
+            onClick={handleToggle}
+            data-testid="toggle-actions-column-icon-button">
             <MenuIcon />
         </IconButton>
         <Popper

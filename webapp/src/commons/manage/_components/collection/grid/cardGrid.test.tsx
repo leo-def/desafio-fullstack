@@ -29,15 +29,15 @@ const config = {
         {
           field: 'id',
           label: 'ID',
-          Title: undefined,
-          Display: undefined,
+          Title: () => <span>ID</span>,
+          Display: ({item}) => <span>{(item as any).id}</span>,
         } as TableField<Object>,
         {
           field: 'name',
           label: 'Name',
-          Title: undefined,
-          Display: undefined,
-        } as TableField<Object>
+          Title: () => <span>Name</span>,
+          Display: ({item}) => <span>{(item as any).name}</span>,
+        } as TableField<Object>,
       ]
     } as TableConfig<Object>,
     filter: {

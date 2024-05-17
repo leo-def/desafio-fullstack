@@ -11,6 +11,7 @@ export const ThemeLoader = ({ children }: PropsWithChildren) => {
 
     useEffect(() => {
         const localTheme = localStorage.getItem(ThemeStorageKeyEnum.THEME);
+
         if (!state || !dispatch) {
             return;
         }
@@ -22,7 +23,7 @@ export const ThemeLoader = ({ children }: PropsWithChildren) => {
             });
         }
     }, [dispatch, state])
-    
+
     useEffect(() => {
         if (!state || !dispatch) {
             return;
