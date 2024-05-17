@@ -55,10 +55,12 @@ Both frontend and backend projects are configured with Jest for testing. To run 
 ```bash
 # Frontend
 cd webapp
+npx prisma generate
 npm test
 
 # Backend
 cd ../api
+npx prisma generate
 npm test
 ```
 
@@ -72,7 +74,8 @@ cd webapp
 
 copy env.bkp .env #Windows
 cp env.bkp .env #Linux
-
+npx prisma generate
+npx prisma db push
 npm run local
 
 # Backend
@@ -80,7 +83,8 @@ cd ../api
 
 copy env.bkp .env #Windows
 cp env.bkp .env #Linux
-
+npx prisma generate
+npx prisma db push
 npm run start:dev
 ```
 
