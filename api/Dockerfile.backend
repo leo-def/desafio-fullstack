@@ -11,6 +11,6 @@ COPY . .
 
 EXPOSE 3000
 
-COPY migrate-and-start.sh /opt/src/scripts/migrate-and-start.sh
+RUN npx prisma generate
 
-CMD /opt/src/scripts/migrate-and-start.sh
+CMD npx prisma db push & npm run start:dev
