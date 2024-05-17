@@ -9,8 +9,8 @@ RUN npm install
 
 COPY . .
 
-RUN npx prisma generate
-
 EXPOSE 3000
 
-CMD ["npm", "run", "start:dev"]
+COPY migrate-and-start.sh /opt/src/scripts/migrate-and-start.sh
+
+CMD /opt/src/scripts/migrate-and-start.sh
