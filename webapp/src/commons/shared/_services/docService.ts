@@ -17,10 +17,10 @@ export class DocService {
     }
 
     static formatCPFMask(cpf: string) {
-        // Remove todos os caracteres não numéricos
+        // Remove all non-numeric characters
         const cleanedCPF = cpf.replace(/\D/g, '');
       
-        // Aplica a máscara de formatação
+        // Apply formatting mask
         const formattedCPF = cleanedCPF.replace(
           /(\d{3})(\d{3})(\d{3})(\d{2})/,
           '$1.$2.$3-$4'

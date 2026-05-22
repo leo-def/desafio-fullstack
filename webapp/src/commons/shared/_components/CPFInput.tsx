@@ -10,7 +10,7 @@ export const CPFInput = React.forwardRef<HTMLInputElement, CPFInputProps>(
   function CPFInput(props, ref) {
     const { onChange, ...other } = props;
 
-    // Função para remover caracteres não numéricos
+    // Function to remove non-numeric characters
     const handleInputChange = (value: string) => {
       const cleanedValue = value.replace(/\D/g, ''); 
       onChange({ target: { name: props.name, value: cleanedValue } });
