@@ -3,6 +3,24 @@ Growdev - Full Stack Developer
 
 <a href="https://growdev.com.br/" target="_blank"> <img src="./mockups/logo-growdev.png" width="400px" /> </a>
 
+
+---
+
+## 📚 Documentation & Specifications
+
+This project follows **Specification-Driven Development**. Start here:
+
+- **[SPEC.md](SPEC.md)** - Technical specification and architecture
+- **[.instructions.md](.instructions.md)** - Development guidelines and patterns
+- **[.agent.md](.agent.md)** - AI agent configuration (Claude, Cursor, etc.)
+
+**Quick Links**:
+- Architecture: [See SPEC.md](SPEC.md#3-architecture) or [See SPEC.md](SPEC.md#architecture)
+- Development Workflow: [See .instructions.md](.instructions.md)
+- AI Usage: [See .agent.md](.agent.md)
+
+---
+
 O objetivo deste desafio é testar a parte técnica dos candidatos para as oportunidades da Growdev.
 
 É pedido o desenvolvimento de uma sistema que realiza o CRUD de mentores das formações da Growdev. As regras e requisitos estão logo abaixo.
